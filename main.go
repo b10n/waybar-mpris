@@ -152,7 +152,9 @@ func secondsToString(seconds int) string {
 func playerJSON(p *player) string {
 	symbol := PLAY
 	out := "{\"class\": \""
-	if p.Playing {
+	if p.Stopped {
+		return "{}"
+	} else if p.Playing {
 		symbol = PAUSE
 		out += "playing"
 	} else {
